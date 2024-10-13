@@ -1,0 +1,62 @@
+schema:User
+Fields:username,email,password
+
+
+===== API for creating username
+
+    url:http:127.0.0.1:8000/myapp/signup/
+    method:POST
+    body:{
+        "username":"user name",
+        "email":"email id",
+        "password1":"password",
+        "password2":"password"
+    }
+
+
+===== API for generating token
+     
+    url:http:127.0.0.1:8000/myapp/token/
+    method:POST
+    body:{
+        "username":"user name",
+        "password":"password"
+    }
+
+
+schema:Employee
+Fields:user_object,department,role,created_date,is_active
+
+===== API for creating Employee
+
+    url:http:127.0.0.1:8000/myapp/employee/add/
+    method:POST
+    body:{
+        "department":"department name"
+        "role":"job role"
+    }
+    authentication:TokenAuthentication
+
+
+
+===== API for Retrive employee
+
+url:http:127.0.0.1:8000/myapp/employee/<int:pk>/
+    method:GET
+    authentication:TokenAuthentication
+    
+===== API for Update Employee
+
+    url:http:127.0.0.1:8000/myapp/employee/<int:pk>/
+    method:PUT
+    body:{
+        "department":"department name"
+        "role":"job role"
+    }
+    authentication:TokenAuthentication
+
+===== API for Delete employee
+
+    url:http:127.0.0.1:8000/myapp/employee/<int:pk>/
+    method:DELETE
+    authentication:TokenAuthentication
